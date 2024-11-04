@@ -187,6 +187,10 @@ function sonar-ext-get() {
         mv "shellcheck-${tag}/shellcheck" "${SONAR_EXTENSION_DIR}/"
         rm -rf "shellcheck-${tag}"
     fi
+    
+    if [ ! -f "${SONAR_EXTENSION_DIR}/flutter" ]; then
+        alias flutter="${SONAR_EXTENSION_DIR}/flutter/bin/flutter"
+    fi
 
     SONAR_SHELLCHECK="sonar-shellcheck-plugin-2.5.0.jar"
     SONAR_SHELLCHECK_URL="https://github.com/sbaudoin/sonar-shellcheck/releases/download/v2.5.0/${SONAR_SHELLCHECK}"
